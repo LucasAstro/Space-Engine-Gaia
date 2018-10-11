@@ -1,5 +1,5 @@
 # Space-Engine-Gaia
-Gaia to spacengine! Get space engine at http://www.spaceengine.org/
+Gaia `.vot` to spacengine! Get space engine at http://www.spaceengine.org/
 Use
 ```SQL
 SELECT source_id, ra, dec, phot_g_mean_mag, r_est, r_lo, r_hi, teff_val, radius_val, lum_val, astrometric_weight_al
