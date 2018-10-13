@@ -14,7 +14,8 @@ if os.path.exists(newpath):
 if not os.path.exists(newpath):
     os.makedirs(newpath)
     os.chdir(newpath)
-# Credit goes to Watsisname and Grote for a few bits of code and help with some equations
+# Credit goes to Watsisname, and Grote for a few bits of code and help with some equations
+# Thanks to DominikDoom too for some enhancements!
 numRow = 0
 for table in votable.iter_tables():
     arrayID = table.array['source_id']
