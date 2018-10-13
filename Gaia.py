@@ -20,6 +20,7 @@ for table in votable.iter_tables():
     arrayID = table.array['source_id']
     for i in arrayID:
         numRow = numRow + 1
+        print(str(numRow) + ' / ' + str(len(arrayID)), end='\r')
         with open(str(numRow) + ".sc", 'w+') as file:
             arrayRA = table.array['ra']
             
@@ -30,7 +31,7 @@ for table in votable.iter_tables():
             c = ICRS(arrayRA[numRow-1]*u.degree, arrayDEC[numRow-1]*u.degree)
             
             rahmsstr = c.ra.to_string(u.hour)
-            decdmsstr = c.dec.to_string(u.degree, alwayssign=True)
+            decdmsstr = str(arrayDEC[numRow-1])
             arraydist = table.array['r_est']
             distance = arraydist[numRow-1]
             
@@ -43,8 +44,7 @@ for table in votable.iter_tables():
 
 
             radsoloutput = str(arrayRadSol[numRow-1])
-
-
+            
             Lumoutput = str(arrayLum[numRow-1])
 
 
@@ -53,7 +53,6 @@ for table in votable.iter_tables():
             rahoutput = rahoutput.replace("h", " ")
             rahoutput = rahoutput.replace("m", " ")
             rahoutput = rahoutput.replace("s", "")
-            rahoutput = rahoutput.replace("'", "")
             
             decoutput = str(decdmsstr)
             
@@ -61,7 +60,6 @@ for table in votable.iter_tables():
             decoutput = decoutput.replace("m", " ")
             decoutput = decoutput.replace("+", "")
             decoutput = decoutput.replace("s", "")
-            decoutput = decoutput.replace("'", "")
             file.write("Star" + "\t" + '"' + str(numRow-1) + '"' + "\n{"
                       + "\n \t \tRA " + rahoutput + 
                       "\n \t \tDec " + decoutput + 
@@ -73,4 +71,4 @@ for table in votable.iter_tables():
                      "\n \t \tTeff " + teffoutput + 
                      "\n \t" + "\n}")
         os.path.join(newpath, str(numRow) + ".sc")
-print("Completed!")
+print("\nCompleted!")
