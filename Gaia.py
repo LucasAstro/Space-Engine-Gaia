@@ -14,7 +14,8 @@ if os.path.exists(newpath):
 if not os.path.exists(newpath):
     os.makedirs(newpath)
     os.chdir(newpath)
-# Credit goes to Watsisname, and Grote for a few bits of code and help with some equations
+# Credit goes to Watsisname, and Grote for a few bits of code and help with some equations!
+# Also, thanks to Phunnie for some help too!
 # Thanks to DominikDoom too for some enhancements!
 numRow = 0
 for table in votable.iter_tables():
@@ -22,7 +23,7 @@ for table in votable.iter_tables():
     for i in arrayID:
         numRow = numRow + 1
         print(str(numRow) + ' / ' + str(len(arrayID)), end='\r')
-        with open(str(numRow) + ".sc", 'w+') as file:
+        with open("outputsc" + ".sc", 'w+') as file:
             arrayRA = table.array['ra']
             
             arrayID = table.array['source_id']
