@@ -2,11 +2,10 @@
 Gaia `.vot` to spacengine! Get space engine at http://www.spaceengine.org/
 Use
 ```SQL
-SELECT source_id, ra, dec, phot_g_mean_mag, r_est, r_lo, r_hi, teff_val, radius_val, lum_val, astrometric_weight_al
+SELECT TOP 500 source_id, ra, dec, r_est, teff_val, radius_val, lum_val
 FROM external.gaiadr2_geometric_distance
 JOIN gaiadr2.gaia_source USING (source_id)
 WHERE r_est < 7000 AND radius_val > 0 AND lum_val > 0
-AND source_id < 2251799813685248
 ```
 At https://gea.esac.esa.int/archive/
 ("Advanced (ADQL)")
