@@ -22,8 +22,7 @@ for table in votable.iter_tables():
     arrayID = table.array['source_id']
     for i in arrayID:
         numRow = numRow + 1
-        print(str(numRow) + ' / ' + str(len(arrayID)), end='\r')
-        with open("outputsc" + ".sc", 'w+') as file:
+        with open("outputsc" + ".sc", 'a+') as file:
             arrayRA = table.array['ra']
             
             arrayID = table.array['source_id']
@@ -62,7 +61,7 @@ for table in votable.iter_tables():
             decoutput = decoutput.replace("m", " ")
             decoutput = decoutput.replace("+", "")
             decoutput = decoutput.replace("s", "")
-            file.write("Star" + "\t" + '"' + str(numRow-1) + '"' + "\n{"
+            file.write("\nreStar" + "\t" + '"' + str(numRow-1) + '"' + "\n{"
                       + "\n \t \tRA " + rahoutput + 
                       "\n \t \tDec " + decoutput + 
                      "\n \t \tDist " + str(distance) + 
