@@ -62,7 +62,7 @@ for table in votable.iter_tables():
             decoutput = decoutput.replace("m", " ")
             decoutput = decoutput.replace("+", "")
             decoutput = decoutput.replace("s", "")
-            file.write("\nreStar" + "\t" + '"' + str(numRow-1) + '"' + "\n{"
+            file.write("\nStar" + "\t" + '"' + str(numRow-1) + '"' + "\n{"
                       + "\n \t \tRA " + rahoutput + 
                       "\n \t \tDec " + decoutput + 
                      "\n \t \tDist " + str(distance) + 
