@@ -22,6 +22,7 @@ for table in votable.iter_tables():
     arrayID = table.array['source_id']
     for i in arrayID:
         numRow = numRow + 1
+        print(str(numRow) + ' / ' + str(len(arrayID)), end='\r')
         with open("outputsc" + ".sc", 'a+') as file:
             arrayRA = table.array['ra']
             
