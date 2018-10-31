@@ -1,10 +1,11 @@
 import numpy
 import astropy
 import os
+import random
 from astropy.io.votable import parse
 from astropy.coordinates import ICRS
 from astropy import units as u
-myinput = input("What is the file you want to read" + "(" + "must have .vot in the name!" + ")")
+myinput = input("What is the file you want to read" + "(" + "must have .vot in the name!" + ")\n")
 dirpath = os.getcwd()
 
 votable = parse(myinput)
@@ -17,12 +18,31 @@ if not os.path.exists(newpath):
 # Credit goes to Watsisname, and Grote for a few bits of code and help with some equations!
 # Also, thanks to Phunnie for some help too!
 # Thanks to DominikDoom too for some enhancements!
+def calcsspectral(temperature):
+    if(temperature <= 3850):
+        return "M"
+    if(temperature > 3850):
+        if(temperature <= 5300):
+            return "K"
+    if(temperature > 5300):
+        if(temperature <= 5920):
+            return "G"
+    if(temperature > 5920):
+        if(temperature <= 7240):
+            return "F"
+    if(temperature > 7240):
+        if(temperature <= 9500):
+            return "A"
+    if(temperature > 9500):
+        if(temperature <= 31000):
+            return "B"
+    if(temperature > 31000):
+            return "O"
 numRow = 0
 for table in votable.iter_tables():
     arrayID = table.array['source_id']
     for i in arrayID:
         numRow = numRow + 1
-        print(str(numRow) + ' / ' + str(len(arrayID)), end='\r')
         with open("outputsc" + ".sc", 'a+') as file:
             arrayRA = table.array['ra']
             
@@ -43,7 +63,6 @@ for table in votable.iter_tables():
 
             arrayLum = table.array['lum_val']
             teffoutput = str(arrayTeff[numRow-1])
-
 
             radsoloutput = str(arrayRadSol[numRow-1])
             
@@ -66,7 +85,7 @@ for table in votable.iter_tables():
                       + "\n \t \tRA " + rahoutput + 
                       "\n \t \tDec " + decoutput + 
                      "\n \t \tDist " + str(distance) + 
-                     "\n \t \tClass  " + '"' + "G5V" + '"' + 
+                     "\n \t \tClass  " + '"' + str(calcsspectral(float(teffoutput))) + str(random.randrange(1,9)) +  " V" '"' + 
                      "\n \t \tLum " + Lumoutput + 
                      "\n \t \tRadSol " + radsoloutput + 
                      "\n \t \tMassSol 1" + 
