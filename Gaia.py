@@ -1,6 +1,7 @@
 import numpy
 import astropy
 import os
+import math
 import random
 from astropy.io.votable import parse
 from astropy.coordinates import ICRS
@@ -40,10 +41,17 @@ def calcsspectral(temperature):
             return "O"
 numRow = 0
 for table in votable.iter_tables():
+    idss = 0
     arrayID = table.array['source_id']
     for i in arrayID:
         numRow = numRow + 1
-        with open("outputsc" + ".sc", 'a+') as file:
+        with open("outputsc" + ".csv", 'a+') as file:
+            if idss == 0:
+                idss = 1
+                os.remove(newpath + "\\outputsc.csv")
+                file.write("Name,RA,Dec,Dist,AppMagn,SpecClass,MassSol,RadSol,Temperature\n")
+                
+            
             arrayRA = table.array['ra']
             
             arrayID = table.array['source_id']
@@ -55,10 +63,11 @@ for table in votable.iter_tables():
             rahmsstr = c.ra.to_string(u.hour)
             decdmsstr = str(arrayDEC[numRow-1])
             arraydist = table.array['r_est']
+            #arrayDesignation = table.array['designation']
             distance = arraydist[numRow-1]
             
             arrayTeff = table.array['teff_val']
-
+                
             arrayRadSol = table.array['radius_val']
 
             arrayLum = table.array['lum_val']
@@ -68,7 +77,7 @@ for table in votable.iter_tables():
             
             Lumoutput = str(arrayLum[numRow-1])
 
-
+            #designationoutput = str(arrayDesignation[numRow-1])
             rahoutput = str(rahmsstr)
             
             rahoutput = rahoutput.replace("h", " ")
@@ -77,19 +86,17 @@ for table in votable.iter_tables():
             
             decoutput = str(decdmsstr)
             
+            degreerah = rahoutput.split(" ")
+            
+            degreeoutput = 15*int(degreerah[0])+int(degreerah[1])/4+float(degreerah[2])/240
+
             decoutput = decoutput.replace("d", " ")
             decoutput = decoutput.replace("m", " ")
             decoutput = decoutput.replace("+", "")
             decoutput = decoutput.replace("s", "")
-            file.write("\nStar" + "\t" + '"' + str(numRow-1) + '"' + "\n{"
-                      + "\n \t \tRA " + rahoutput + 
-                      "\n \t \tDec " + decoutput + 
-                     "\n \t \tDist " + str(distance) + 
-                     "\n \t \tClass  " + '"' + str(calcsspectral(float(teffoutput))) + str(random.randrange(1,9)) +  " V" '"' + 
-                     "\n \t \tLum " + Lumoutput + 
-                     "\n \t \tRadSol " + radsoloutput + 
-                     "\n \t \tMassSol 1" + 
-                     "\n \t \tTeff " + teffoutput + 
-                     "\n \t" + "\n}")
-        os.path.join(newpath, str(numRow) + ".sc")
+            absolute_magnitude = 4.83 - 2.5 * math.log10(float(Lumoutput))
+            apparent_magnitude = absolute_magnitude + 5 * math.log10(float(distance)) - 5
+            file.write(str(numRow) + "," + str(degreeoutput) + "," + str(decoutput) + "," + str(distance) + "," + str(apparent_magnitude) + "," + str(calcsspectral(float(teffoutput)) + str(random.randrange(1,9)) + "V") + "," + "," + str(radsoloutput) + "," + str(teffoutput) + "\n")
+            
+        os.path.join(newpath, str(numRow) + ".csv")
 print("\nCompleted!")
