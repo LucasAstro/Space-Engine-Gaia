@@ -1,5 +1,3 @@
-import numpy
-import astropy
 import os
 import math
 import random
@@ -16,6 +14,9 @@ if os.path.exists(newpath):
 if not os.path.exists(newpath):
     os.makedirs(newpath)
     os.chdir(newpath)
+if(os.path.isfile(newpath + "\\outputsc.csv")):
+    os.remove("outputsc.csv")
+       
 # Credit goes to Watsisname, and Grote for a few bits of code and help with some equations!
 # Also, thanks to Phunnie for some help too!
 # Thanks to DominikDoom too for some enhancements!
@@ -43,12 +44,14 @@ numRow = 0
 for table in votable.iter_tables():
     idss = 0
     arrayID = table.array['source_id']
+
     for i in arrayID:
         numRow = numRow + 1
+        print(str(numRow) + ' / ' + str(len(arrayID)), end='\r')
         with open("outputsc" + ".csv", 'a+') as file:
             if idss == 0:
                 idss = 1
-                os.remove(newpath + "\\outputsc.csv")
+                
                 file.write("Name,RA,Dec,Dist,AppMagn,SpecClass,MassSol,RadSol,Temperature\n")
                 
             
