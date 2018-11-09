@@ -24,5 +24,6 @@ And if you want to change the amount of stars change the `500` at the top to how
 Then download the votable by clicking 
 ![Screenshot](https://cdn.discordapp.com/attachments/418486708409991178/509645250491449354/chrome_2018-11-07_02-27-54.png) 
 Make sure the bar on the bottom says `VOTable` and not `VOTable (plain)` or anything else.
-Put it in the same folder as the .py file. Now run the .py, it's gonna ask you what the name of the file is and just copy the file name into console and add .vot if it's not there already.
+Put it in the same folder as the .py file. Now run the .py.
+It's gonna ask you what the name of the file is and just copy the file name into console and add .vot if it's not there already.
 It's gonna output 1 file in outputsc, put that in `SpaceEngine/addons/catalogs/stars` and it's done!
