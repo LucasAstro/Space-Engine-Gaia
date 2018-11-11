@@ -1,6 +1,8 @@
 # Space-Engine-Gaia
 Gaia to spacengine! Get space engine at http://www.spaceengine.org/
-**If you want premade packs then I recommend Phunnie's post on the Space Engine forums! http://forum.spaceengine.org/viewtopic.php?f=3&t=478&p=24288#p24273**
+
+**If you want premade packs then I recommend Phunnie's post on the Space Engine forums! 
+http://forum.spaceengine.org/viewtopic.php?f=3&t=478&p=24288#p24273**
 
 Gaia .vot to spacengine! Get space engine at http://www.spaceengine.org/
 
