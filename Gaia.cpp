@@ -1,17 +1,11 @@
 #include "pch.h"
 #include <iostream>
 #include "csv.h"
+#include <time.h>
 #include <string>
 #include <vector>
 #include <math.h>
 #include <fstream>
-#include <time.h>
-
-
-/*
-Many thanks to Phunnie for a lot of help with the Python one and reporting bugs! Along with Watsisname for helping me with so much math!
-Thanks to JackDole for some bug reporting too
-*/
 
 
 std::string calcsspectral(float temperature) {
@@ -38,9 +32,10 @@ std::string calcsspectral(float temperature) {
 	}
 }
 
-void csvlinecount(std::string csv_file) {
-	srand(time(NULL));
+int csvlinecount(std::string csv_file) {
 	int count = 0;
+
+	srand(time(NULL));
 
 	std::string line;
 	std::ifstream file(csv_file);
@@ -79,12 +74,11 @@ void csvlinecount(std::string csv_file) {
 			{
 				myfile << "Name,RA,Dec,Dist,AppMagn,SpecClass,MassSol,RadSol,Temperature" << std::endl;
 			}
-			float RAOutput = raarray[csvcount - 1] / 360 * 24;
 			/*
 			float absolute_magnitude = 4.83 - 2.5 * log10(magnitudearray[csvcount - 1]);
 			float apparent_magnitude = absolute_magnitude + 5 * log10(distarray[csvcount - 1]) - 5;
 			*/
-			myfile << designationarray[csvcount - 1] << "," << RAOutput << "," << decarray[csvcount - 1] << "," << distarray[csvcount - 1] << "," << magnitudearray[csvcount -1] << "," << calcsspectral(teff_val) << (rand() % 9 + 1) << "V" << "," << "," << radiusarray[csvcount - 1] << "," << teff_val << std::endl;
+			myfile << designationarray[csvcount - 1] << "," << raarray[csvcount-1] << "," << decarray[csvcount - 1] << "," << distarray[csvcount - 1] << "," << magnitudearray[csvcount -1] << "," << calcsspectral(teff_val) << (rand() % 9 + 1) << "V" << "," << "," << radiusarray[csvcount - 1] << "," << teff_val << std::endl;
 			newcount++;
 			std::cout << newcount << std::endl;	
 		}
@@ -93,12 +87,13 @@ void csvlinecount(std::string csv_file) {
 	}
 	
 	myfile.close();
-	std::cout << "Completed" << std::endl;
 	std::cin.ignore();
+	return 0;
 }
 
 int main() 
 {
-	csvlinecount("ram.csv");
-	return 0;
+	std::string inputfile;
+	std::cin >> inputfile;
+	csvlinecount(inputfile);
 }
