@@ -5,6 +5,7 @@
 #include <vector>
 #include <math.h>
 #include <fstream>
+#include <time.h>
 
 
 /*
@@ -38,6 +39,7 @@ std::string calcsspectral(float temperature) {
 }
 
 void csvlinecount(std::string csv_file) {
+	srand(time(NULL));
 	int count = 0;
 
 	std::string line;
