@@ -1,4 +1,4 @@
-#DOWNLOAD THE C++ VERSION, THIS IS HERE FOR ARCHIVE'S SAKE
+**_DOWNLOAD THE C++ VERSION, THIS IS HERE FOR ARCHIVE'S SAKE_**
 
 Gaia .vot to spacengine! Get space engine at http://www.spaceengine.org/
 
@@ -29,4 +29,4 @@ Put it in the same folder as the .py file. Now run the .py.
 It's gonna ask you what the name of the file is and just copy the file name into console and add .vot if it's not there already.
 It's gonna output 1 file in outputsc, put that in `SpaceEngine/addons/catalogs/stars` and it's done!
 
-#DOWNLOAD THE C++ VERSION, THIS IS HERE FOR ARCHIVE'S SAKE
+**_DOWNLOAD THE C++ VERSION, THIS IS HERE FOR ARCHIVE'S SAKE_**
