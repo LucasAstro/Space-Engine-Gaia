@@ -7,6 +7,12 @@
 #include <fstream>
 
 
+/*
+Many thanks to Phunnie for a lot of help with the Python one and reporting bugs! Along with Watsisname for helping me with so much math!
+Thanks to JackDole for some bug reporting too
+*/
+
+
 std::string calcsspectral(float temperature) {
 	if (temperature <= 3850) {
 		return "M";
