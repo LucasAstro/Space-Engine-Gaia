@@ -6,7 +6,7 @@ http://forum.spaceengine.org/viewtopic.php?f=3&t=478&p=24288#p24273**
 
 Gaia .vot to spacengine! Get space engine at http://www.spaceengine.org/
 
-Download Gaia.py from here https://github.com/LucasAstro/Space-Engine-Gaia/releases/download/2.01/Gaia.cpp
+Download Gaia.exe from here https://github.com/LucasAstro/Space-Engine-Gaia/releases/download/2.01/Gaia.exe
 
 Download the `.csv` file from here https://gea.esac.esa.int/archive/  after making an ADQL request (you can just paste
 ```SQL
