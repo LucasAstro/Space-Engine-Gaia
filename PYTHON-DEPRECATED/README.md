@@ -1,4 +1,5 @@
-# Space-Engine-Gaia
+#DOWNLOAD THE C++ VERSION, THIS IS HERE FOR ARCHIVE'S SAKE
+
 Gaia .vot to spacengine! Get space engine at http://www.spaceengine.org/
 
 Download Gaia.py from here https://github.com/LucasAstro/Space-Engine-Gaia/releases/download/1.01/Gaia.py
@@ -27,3 +28,5 @@ Make sure the bar on the bottom says `VOTable` and not `VOTable (plain)` or anyt
 Put it in the same folder as the .py file. Now run the .py.
 It's gonna ask you what the name of the file is and just copy the file name into console and add .vot if it's not there already.
 It's gonna output 1 file in outputsc, put that in `SpaceEngine/addons/catalogs/stars` and it's done!
+
+#DOWNLOAD THE C++ VERSION, THIS IS HERE FOR ARCHIVE'S SAKE
