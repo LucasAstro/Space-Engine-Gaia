@@ -85,10 +85,12 @@ void csvlinecount(std::string csv_file) {
 	}
 	
 	myfile.close();
+	std::cout << "Completed" << std::endl;
 	std::cin.ignore();
 }
 
 int main() 
 {
 	csvlinecount("ram.csv");
+	return 0;
 }
