@@ -29,3 +29,6 @@ Make sure the bar on the bottom says `CSV` and not `VOTable` or anything else.
 Put it in the same folder as the .exe file, **rename it to `ram.csv`**. Now run the .exe.
 It's gonna output 1 file named `output.csv`, put that in `SpaceEngine/addons/catalogs/stars` and it's done!
 
+**_Note if you want to compile yourself, you need 
+https://github.com/ben-strasser/fast-cpp-csv-parser
+_**
