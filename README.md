@@ -10,7 +10,7 @@ Download Gaia.exe from here https://github.com/LucasAstro/Space-Engine-Gaia/rele
 
 Download the `.csv` file from here https://gea.esac.esa.int/archive/  after making an ADQL request (you can just paste
 ```SQL
-SELECT TOP 500 source_id, (ra/360*24) AS RA, dec, r_est, teff_val, radius_val, phot_g_mean_mag, designation
+SELECT TOP 500 (ra/360*24) AS RA, dec, r_est, teff_val, radius_val, phot_g_mean_mag, designation, parallax_error, parallax, parallax_over_error
 FROM external.gaiadr2_geometric_distance
 JOIN gaiadr2.gaia_source USING (source_id)
 WHERE r_est < 7000 AND radius_val > 0 AND lum_val > 0
